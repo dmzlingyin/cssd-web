@@ -1,29 +1,29 @@
 # smart-supervise-web
 
-## Project setup
+> smart-supervise-web 为 smart-supervise(智能监考系统)的前端部分，后端部分**点击此处**。
+
+## 特性
+
+* 基于目前世界主流的前端框架Vue3, 易用、灵活、高效。
+* UI库采用饿了么开源的Element-plus, 与Vue3.0完美契合。
+
+## 开始
+
 ```
-yarn install
+git clone https://github.com/dmzlingyin/smart-supervise-web.git
+cd smart-supervise-web
+yarn install/(npm run install)
+yarn serve/(npm run serve)
 ```
 
-### Compiles and hot-reloads for development
-```
-yarn serve
-```
-
-### Compiles and minifies for production
-```
-yarn build
-```
-
-### Run your unit tests
+### 单元测试
 ```
 yarn test:unit
 ```
 
-### Lints and fixes files
+### 代码分析及文件修复
 ```
 yarn lint
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+
