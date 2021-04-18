@@ -1,6 +1,6 @@
 # smart-supervise-web
 
-> smart-supervise-web 为 smart-supervise(智能监考系统)的前端部分，后端部分**点击此处**。
+> smart-analysis-web 为 smart-analysis(智能分析系统)的前端部分，后端部分**点击此处**。
 
 ## 特性
 
@@ -10,8 +10,8 @@
 ## 开始
 
 ```
-git clone https://github.com/dmzlingyin/smart-supervise-web.git
-cd smart-supervise-web
+git clone https://github.com/dmzlingyin/smart-analysis-web.git
+cd smart-analysis-web
 yarn install/(npm run install)
 yarn serve/(npm run serve)
 ```
