@@ -1,6 +1,6 @@
 # cssd-web
 
-> cssd-web，cssd全称Class-Student-Status-Detection-Web,为课堂学生状态检测前端，后端https://github.com/dmzlingyin/cssd-admin。
+> cssd-web，cssd全称Class-Student-Status-Detection-Web,为课堂学生状态检测前端，后端https://github.com/dmzlingyin/cssd-admin
 
 ## 特性
 
