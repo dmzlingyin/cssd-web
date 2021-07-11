@@ -1,6 +1,6 @@
-# smart-analysis-web
+# cssd-web
 
-> smart-analysis-web 为 smart-analysis(智能分析系统)的前端部分，后端部分**点击此处**。
+> cssd-web，cssd全称Class-Student-Status-Detection-Web,为课堂学生状态检测前端，后端**点击此处**。
 
 ## 特性
 
@@ -10,8 +10,8 @@
 ## 开始
 
 ```
-git clone https://github.com/dmzlingyin/smart-analysis-web.git
-cd smart-analysis-web
+git clone https://github.com/dmzlingyin/cssd-web.git
+cd cssd-web
 yarn install/(npm run install)
 yarn serve/(npm run serve)
 ```
