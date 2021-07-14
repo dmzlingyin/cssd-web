@@ -1,5 +1,5 @@
 {
-  "name": "smart-supervise-web",
+  "name": "cssd",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -10,7 +10,9 @@
   },
   "dependencies": {
     "core-js": "^3.6.5",
+    "element-plus": "^1.0.2-beta.55",
     "vue": "^3.0.0",
+    "vue-loader-v16": "^16.0.0-beta.5.4",
     "vue-router": "^4.0.0-0",
     "vuex": "^4.0.0-0"
   },
