@@ -1,3 +1,4 @@
+<script src="../../utils/auth.js"></script>
 <template>
   <div class="login-container">
     <el-form ref="loginForm" :model="loginForm" :rules="loginRules" class="login-form" auto-complete="on" label-position="left">
@@ -43,17 +44,14 @@
 
       <el-button :loading="loading" type="primary" style="width:100%;margin-bottom:30px;" @click.native.prevent="handleLogin">Login</el-button>
 
-      <div class="tips">
-        <span style="margin-right:20px;">username: admin</span>
-        <span> password: any</span>
-      </div>
-
     </el-form>
   </div>
 </template>
 
 <script>
 import { validUsername } from '@/utils/validate'
+import axios from 'axios'
+import Cookie from 'js-cookie'
 
 export default {
   name: 'Login',
@@ -78,20 +76,13 @@ export default {
         password: '111111'
       },
       loginRules: {
-        username: [{ required: true, trigger: 'blur', validator: validateUsername }],
-        password: [{ required: true, trigger: 'blur', validator: validatePassword }]
+        username: [{required: true, trigger: 'blur', validator: validateUsername}],
+        password: [{required: true, trigger: 'blur', validator: validatePassword}]
       },
       loading: false,
       passwordType: 'password',
-      redirect: undefined
-    }
-  },
-  watch: {
-    $route: {
-      handler: function(route) {
-        this.redirect = route.query && route.query.redirect
-      },
-      immediate: true
+      redirect: undefined,
+      token: ''
     }
   },
   methods: {
@@ -106,11 +97,25 @@ export default {
       })
     },
     handleLogin() {
+      axios.get('http://127.0.0.1:8080/auth', {
+        params: {
+          username: this.loginForm.username
+        }
+      }).then(function (response) {
+        console.log(response);
+        console.log(response.token);
+        // const value = localStorage.getItem('token')
+          const value = '123456789'
+        Cookie.set('token', value)
+      })
+        .catch(function (error) {
+          console.log(error);
+        })
       this.$refs.loginForm.validate(valid => {
         if (valid) {
           this.loading = true
           this.$store.dispatch('user/login', this.loginForm).then(() => {
-            this.$router.push({ path: this.redirect || '/' })
+            this.$router.push({path: this.redirect || '/'})
             this.loading = false
           }).catch(() => {
             this.loading = false
@@ -181,8 +186,8 @@ $light_gray:#eee;
   min-height: 100%;
   width: 100%;
   background-color: $bg;
+  //background-image: url(../../assets/images/login-bg.jpg);
   overflow: hidden;
-
   .login-form {
     position: relative;
     width: 520px;
