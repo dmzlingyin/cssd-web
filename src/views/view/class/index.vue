@@ -1,56 +1,46 @@
 
 <template>
   <div class="demo-image__preview">
-<!--    <div v-for="item in video" >-->
-    <div v-for="item in 20" >
-      <video width="320" height="260" controls autoplay>
-
-        <source src='@/assets/a_mQtFtpPBB0iR1593536439.mp4' type="video/mp4">
-<!--        <source :src=item.suource  type="video/mp4">-->
-      </video>
-
-    </div>
-
-
+  <video id="video" controls></video>
+  <video id="video" controls></video>
+  <video id="video" controls></video>
+  <video id="video" controls></video>
   </div>
 </template>
+
 <script>
-import axios from "axios";
+// import axios from "axios";
+import Hls from "@/dist/hls"
 
 export default {
   data() {
     return {
-      url: '@/assets/a_mQtFtpPBB0iR1593536439.mp4',
-      video: [],
-    }
+
+    };
   },
   methods: {
-    click() {
-      axios({
-        url: 'http://127.0.0.1:5000/getNews',
-        method: 'get',
-        data: {
-        }
-      }).then(res => {
-        console.log(res)
-        this.video = res.data.video
-      }).catch(err => {
-        console.log(err)
-      })
+  },
+  mounted() {
+    var video = document.getElementById('video');
+    var videoSrc = "https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8";
+    if (Hls.isSupported()) {
+      var hls = new Hls();
+      hls.loadSource(videoSrc);
+      hls.attachMedia(video);
+    } else if (video.canPlayType("application/vnd.apple.mpegurl")) {
+      video.src = videoSrc;
     }
-
-  }
-}
+  },
+};
 </script>
 
 <style lang="scss">
-.demo-image__preview{
-  margin: 5px;
-  display: flex;
-  flex-wrap: wrap;
-  div {
-    margin-right: 10px;
-  }
+#video {
+  float: left;
+  margin-left: 20px;
+  margin-top: 30px;
+  width: 500px;
+  height: 300px;
 }
 </style>
 
